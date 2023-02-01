@@ -25,6 +25,8 @@ namespace WinFormsAppErrors
             var t1 = Task2();
             try
             {
+                Task.Delay(1000);
+                await Task.Delay(1000);
                 var i = await t1;
                 label1.Text = i.ToString();
             }
@@ -47,11 +49,14 @@ namespace WinFormsAppErrors
             {
                 int i = 0;
                 int j = 16;
-                Task.Delay(111);
+
                 j /= i;
+
+                i++;
+                return j;
             });
-            await t;
-            return 12;
+            var k = await t;
+            return k;
         }
     }
 }
